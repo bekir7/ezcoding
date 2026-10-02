@@ -1,19 +1,22 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    <footer>
-      <p>{{ new Date().getFullYear() }} - <strong>Ebubekir Yıldırım</strong></p>
-      <div class="social-icons">
-        <a v-bind:href="linkedin" class="icon-link" v-html="icon('linkedin')"></a>
-        <a v-bind:href="instagram" class="icon-link" v-html="icon('instagram')"></a>
-        <a v-bind:href="github" class="icon-link" v-html="icon('github')"></a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Ebubekir Yıldırım</strong>
+        <p>{{ new Date().getFullYear() }} · Ez Coding</p>
       </div>
-    </footer>
-  </div>
+      <div class="social-icons">
+        <a :href="linkedin" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" v-html="icon('linkedin')"></a>
+        <a :href="instagram" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram" v-html="icon('instagram')"></a>
+        <a :href="github" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" v-html="icon('github')"></a>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
-import feather from 'feather-icons';
+import feather from "feather-icons";
 
 export default {
   data() {
@@ -32,46 +35,57 @@ export default {
 </script>
 
 <style scoped>
-/* Global reset to make sure no margin/padding is added to body and html */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.site-footer {
+  margin-top: auto;
+  color: #e8edf5;
+  background: #101828;
 }
 
-/* Make sure the body and html take full height and width of the screen */
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-/* Footer styling */
-footer {
-  background: linear-gradient(45deg, #0066cc, #00cc99);
-  color: #ffffff;
-  text-align: center;
-  width: 100%;
-  position: absolute;  /* Absolute position at the bottom of the page */
-  bottom: 0;
-  left: 0;
-  padding: 20px 0;
-}
-
-/* Social icons styling */
-.social-icons {
-  margin-top: 10px;
+.footer-inner {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.site-footer p {
+  margin: 4px 0 0;
+  color: #98a2b3;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
 }
 
 .icon-link {
-  color: #ffffff;
-  margin: 0 5px;
-  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
 }
 
 .icon-link:hover {
-  color: white;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.icon-link :deep(svg) {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

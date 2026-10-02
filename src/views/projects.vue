@@ -1,180 +1,77 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-   
-    <div class="contact-section2">
-       
-        <div class="container d-flex justify-content-center">
-        <div class="col-sm-5">
-           
-        </div>
+  <section class="page">
+    <header class="page-head">
+      <p class="eyebrow">GitHub</p>
+      <h1>{{ $t('projects.title') }}</h1>
+      <p class="lede">{{ $t('projects.lede') }}</p>
+    </header>
+    <div class="filters" role="group" :aria-label="$t('projects.filterLabel')">
+      <button
+        v-for="filter in filters"
+        :key="filter.id"
+        type="button"
+        class="filter-btn"
+        :aria-pressed="active === filter.id"
+        @click="toggle(filter.id)"
+      >
+        {{ filter.label }}
+      </button>
     </div>
-    
-    <h2>Projelerim</h2>
-    <br>
-    <div class="container d-flex justify-content-between">
-    <div class="row">
-    
-    <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/Food-App"> <p><strong>Food App</strong></p></a>
-                <p>Flutter ile yapılmış bir yemek uygulamasıdır.API'den çekilen verilerle kullanıcıların ellerindeki malzemeye göre yemek öneriyor.</p>
-            </div>
-            
-        </div>
+    <p v-if="visibleProjects.length === 0" class="note">{{ $t('projects.empty') }}</p>
+    <div class="grid">
+      <a
+        v-for="project in visibleProjects"
+        :key="project.key"
+        class="surface project-card"
+        :href="project.href"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="card-kicker">{{ project.tag }}</span>
+        <h2>{{ $t('projects.' + project.key + '.title') }}</h2>
+        <p>{{ $t('projects.' + project.key + '.text') }}</p>
+      </a>
     </div>
+  </section>
+</template>
 
-    
-    <div class="col mb-4">
-         <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/Quiz-APP"> <p><strong>Quiz App</strong></p></a>
-                <p>Flutter ile yapılmış bir quiz uygulamasıdır.KPSS çıkmış sınav sorularının olduğu quiz uygulaması.</p>
-            </div>
-            
-        </div>
-    </div>
-
-    
-    <div class="col mb-4">
-         <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/TodoApp"> <p><strong>TODO App</strong></p></a>
-                <p>Flutter ile yapılmış bir Todo uygulamasıdır.İsar database kullanılan notlar uygulaması.</p>
-            </div>
-            
-        </div>
-    </div>
-
-    
-    <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/Weather-App2"> <p><strong>Weather App</strong></p></a>
-                <p>Flutter ve Collect API ile oluşturulmuş hava durumu uygulaması.</p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/Weather-App"> <p><strong>Weather App</strong></p></a>
-                <p>Flutter ve Open Weather API ile oluşturulmuş hava durumu uygulaması.</p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/KTUNGram"> <p><strong>KTUNGram</strong></p></a>
-                <p>Konya Teknik Üniversitesinde dönem projesi için oluşturulmuş chat uygulaması.Flutter ve firebase kullanıldı.</p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/QrPro"> <p><strong>Qr App</strong></p></a>
-                <p>Flutter ile yapılmış bir qr uygulamasıdır.Uygulamada QR kod oluşturup taratılabilir.Uygulama aynı zamanda Google Play Store'da yayınlanmıştır.</p>
-            </div>
-            
-        </div>
-    </div>
-
-     <div class="col mb-4">
-        <div class="card  h-100">
-            
-            <div class="card-body text-center">
-                
-                
-               <a href="https://github.com/bekir7/hatirlatici"> <p><strong>Reminder App</strong></p></a>
-                <p>Flutter ile yapılmış bir hatırlatıcı uygulamasıdır.</p>
-            </div>
-            
-        </div>
-    </div>
-</div>
-</div>
-    </div>
-<br>
-<br> 
-
-  </template>
-  <script>
-
-
-
-  export default {
-    data() {
-      return {
-         
-         
-      }
-    },
-    methods: {
-   
+<script>
+export default {
+  data() {
+    return {
+      active: null,
+      filters: [
+        { id: "flutter", label: "Flutter" },
+        { id: "vue", label: "Vue.js" },
+        { id: "dotnet", label: ".NET" }
+      ],
+      projects: [
+        { key: "clinic", tag: ".NET · Vue.js", tags: ["dotnet", "vue"], href: "https://github.com/bekir7/Klinik-Randevu-Sistemi-.net-core-web-api-vue.js" },
+        { key: "stock", tag: ".NET · Vue.js", tags: ["dotnet", "vue"], href: "https://github.com/bekir7/Stok-Takip-.net-core-web-api-vue.js" },
+        { key: "cafe", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/KafeMenu" },
+        { key: "crypto", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Kripto-Trade" },
+        { key: "food", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Food-App" },
+        { key: "quiz", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Quiz-APP" },
+        { key: "todo", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/TodoApp" },
+        { key: "weatherCollect", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Weather-App2" },
+        { key: "weatherOpen", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Weather-App" },
+        { key: "ktun", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/KTUNGram" },
+        { key: "qr", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/QrPro" },
+        { key: "reminder", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/hatirlatici" }
+      ]
+    };
   },
-  components: {
-    
+  computed: {
+    visibleProjects() {
+      if (!this.active) return this.projects;
+      return this.projects.filter((project) => project.tags.includes(this.active));
+    }
+  },
+  methods: {
+    toggle(id) {
+      this.active = this.active === id ? null : id;
+    }
   }
-  }
-  </script>
-  
-  <style scoped>
-
-  .contact-section2 {
-    position: relative;
-    text-align: center; /* Metni ortala */
-    margin-left: -16%;
-    margin-top: 20px;
-    font-weight: 500;
-  }
- .card {
-    width: 200px; /* Tüm kartlara eşit genişlik */
-    background-color: aquamarine; /* Kart arka plan rengi */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekleme */
-}
-.card a:hover{
-  color: white;
-}
-
-/* Her kartın altında boşluk bırak */
-.col {
-  margin-bottom: 20px; /* Alt boşluk eklenir */
-}
-
-/* Satırlar arasında boşluk */
-.row {
-  gap: 20px; /* Daha modern ve düzenli bir görünüm */
-}
-
-  </style>
+};
+</script>
