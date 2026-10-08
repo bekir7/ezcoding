@@ -56,9 +56,7 @@ export default {
         { key: "todo", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/TodoApp" },
         { key: "weatherCollect", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Weather-App2" },
         { key: "weatherOpen", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/Weather-App" },
-        { key: "ktun", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/KTUNGram" },
-        { key: "qr", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/QrPro" },
-        { key: "reminder", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/hatirlatici" }
+        { key: "ktun", tag: "Flutter", tags: ["flutter"], href: "https://github.com/bekir7/KTUNGram" }
       ]
     };
   },

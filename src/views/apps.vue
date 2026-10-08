@@ -7,6 +7,12 @@
       <p class="lede">{{ $t('apps.lede') }}</p>
     </header>
     <div class="grid">
+      <a class="surface app-card" href="https://play.google.com/store/apps/details?id=com.ezgames.remio" target="_blank" rel="noopener noreferrer">
+        <img :src="require('@/assets/remiologo.png')" alt="REMIO" />
+        <div>
+          <h2>REMIO</h2>
+        </div>
+      </a>
       <a class="surface app-card" href="https://play.google.com/store/apps/details?id=com.ezgames.potatopanic" target="_blank" rel="noopener noreferrer">
         <img :src="require('@/assets/potato.png')" alt="Potato Panic" />
         <div>

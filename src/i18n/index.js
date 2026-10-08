@@ -104,14 +104,6 @@ const messages = {
         title: "KTUNGram",
         text: "Konya Teknik Üniversitesinde dönem projesi için oluşturulmuş chat uygulaması. Flutter ve firebase kullanıldı."
       },
-      qr: {
-        title: "Qr App",
-        text: "Flutter ile yapılmış bir qr uygulamasıdır. Uygulamada QR kod oluşturup taratılabilir. Uygulama aynı zamanda Google Play Store'da yayınlanmıştır."
-      },
-      reminder: {
-        title: "Reminder App",
-        text: "Flutter ile yapılmış bir hatırlatıcı uygulamasıdır."
-      }
     },
     apps: {
       title: "Uygulamalarım",
@@ -233,14 +225,6 @@ const messages = {
         title: "KTUNGram",
         text: "A chat app built as a term project at Konya Technical University, using Flutter and Firebase."
       },
-      qr: {
-        title: "Qr App",
-        text: "A QR app built with Flutter. It can create and scan QR codes, and it is published on the Google Play Store."
-      },
-      reminder: {
-        title: "Reminder App",
-        text: "A reminder app built with Flutter."
-      }
     },
     apps: {
       title: "My apps",
@@ -362,14 +346,6 @@ const messages = {
         title: "KTUNGram",
         text: "Eine Chat-App als Semesterprojekt an der Technischen Universität Konya, mit Flutter und Firebase."
       },
-      qr: {
-        title: "Qr App",
-        text: "Eine QR-App mit Flutter. Sie erstellt und scannt QR-Codes und ist im Google Play Store veröffentlicht."
-      },
-      reminder: {
-        title: "Reminder App",
-        text: "Eine Erinnerungs-App mit Flutter."
-      }
     },
     apps: {
       title: "Meine Apps",
